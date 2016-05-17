@@ -5,7 +5,6 @@ myApp.controller('SignUpCtrl', ['$scope', '$cookies', function ($scope, $cookies
     $scope.errorMessage = '';
 
     $scope.submit = function(email, password) {
-        //console.log($scope.signUpForm.email.$valid);
         $scope.registered = false;
         if(email === 'john@doe.com' && password === 'johndoe') {
             $scope.registered = true;
@@ -51,4 +50,3 @@ myApp.directive('equals', function() {
         }
     }
 });
-

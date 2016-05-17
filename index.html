@@ -37,17 +37,19 @@
                         </div>
                     </div>
 
-
                     <div class="control-group">
                         <label class="control-label" for="password">Password</label>
                         <div class="controls">
                             <input type="password" id="password" name="password" placeholder="" class="form-control input-lg"
                                    ng-model="password" ng-minlength="6" equals="{{rePassword}}" required>
                             <p class="help-block">Password should be at least 6 characters</p>
-                            <!--password validation errors-->
-                            <div class="custom-error" ng-show="signUpForm.password.$dirty && signUpForm.password.$invalid">
-                                <span ng-show="signUpForm.password.$error.required">INVALID: Password is required</span>
-                                <span ng-show="signUpForm.password.$error.minlength">INVALID: Password should be minimum 6 character</span>
+                            <div ng-show="signUpForm.email.$valid">
+                                <!--password validation errors-->
+                                <div class="custom-error"
+                                     ng-show="signUpForm.password.$dirty && signUpForm.password.$invalid">
+                                    <span ng-show="signUpForm.password.$error.required">INVALID: Password is required</span>
+                                    <span ng-show="signUpForm.password.$error.minlength">INVALID: Password should be minimum 6 character</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -56,13 +58,15 @@
                         <label class="control-label" for="rePassword">Password (Confirm)</label>
                         <div class="controls">
                             <input type="password" id="rePassword" name="rePassword" placeholder="" class="form-control input-lg"
-                                   ng-model="rePassword" ng-minlength="6" equals="{{password}}" required>
+                                   ng-model="rePassword" equals="{{password}}" required>
                             <p class="help-block">Please confirm password</p>
-                            <!--rePassword validation errors-->
-                            <div class="custom-error" ng-show="signUpForm.rePassword.$dirty && signUpForm.rePassword.$invalid">
-                                <span ng-show="signUpForm.rePassword.$error.required">INVALID: Confirm password is required</span>
-                                <span ng-show="signUpForm.rePassword.$error.minlength">INVALID: Confirm password should be minimum 6 character</span>
-                                <span ng-show="signUpForm.rePassword.$error.equals">INVALID: Passwords are not same</span>
+                            <div ng-show="signUpForm.email.$valid">
+                                <!--rePassword validation errors-->
+                                <div class="custom-error"
+                                     ng-show="signUpForm.rePassword.$dirty && signUpForm.rePassword.$invalid">
+                                    <p ng-show="signUpForm.rePassword.$error.required">INVALID: Confirm password is required</p>
+                                    <p ng-show="signUpForm.rePassword.$error.equals">INVALID: Passwords are not same</p>
+                                </div>
                             </div>
                         </div>
                     </div>
