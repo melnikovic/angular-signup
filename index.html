@@ -17,9 +17,12 @@
                     <div id="legend">
                         <legend class="">Register</legend>
                     </div>
-                    <div id="overal-error">
+                    <div id="overall-error">
                         <span ng-if="errorMessage">{{errorMessage}}</span>
-                        <span ng-show="signUpForm.$invalid && signUpForm.$dirty"> Failure - not valid data </span>
+                        <span ng-show="signUpForm.email.$dirty && signUpForm.email.$invalid ||
+                            signUpForm.password.$dirty && signUpForm.password.$invalid ||
+                            signUpForm.rePassword.$dirty && signUpForm.rePassword.$invalid
+                        "> Failure - not valid data </span>
                     </div>
                     <div class="control-group">
                         <label class="control-label" for="email">Username</label>
@@ -74,14 +77,14 @@
                     <div class="control-group">
                         <!-- Button -->
                         <div class="controls">
-                            <a class="btn btn-success" ng-click="submit(email, password)" ng-disabled="signUpForm.$invalid">Register</a>
+                            <a id="register" class="btn btn-success" ng-click="submit(email, password)" ng-disabled="signUpForm.$invalid">Register</a>
                         </div>
                     </div>
                 </fieldset>
             </form>
             <div ng-if="isRegistered()">
-                You are registered now!
-                <a class="btn btn-success" ng-click="logout()">Logout</a>
+                <span id="loggedMessage">You are registered now!</span>
+                <a class="btn btn-success" id="logout" ng-click="logout()">Logout</a>
             </div>
 
         </div>

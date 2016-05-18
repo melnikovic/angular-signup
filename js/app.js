@@ -17,12 +17,12 @@ myApp.controller('SignUpCtrl', ['$scope', '$cookies', function ($scope, $cookies
 
     $scope.isRegistered = function(){
          return $scope.registered || $cookies.get('registered');
-    }
+    };
 
     $scope.logout = function() {
         $scope.registered = false;
         $cookies.remove('registered');
-    }
+    };
 
 }]);
 
